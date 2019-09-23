@@ -23,13 +23,13 @@
 define('DB_NAME', 'psl_blog');
 
 /** MySQL database username */
-define('DB_USER', 'psl_blog');
+define('DB_USER', 'admin');
 
 /** MySQL database password */
-define('DB_PASSWORD', '4Ek1m28WobPq&2dfx');
+define('DB_PASSWORD', 'Darshan1234');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'database-1.cxj9p8o4ysav.ap-south-1.rds.amazonaws.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
