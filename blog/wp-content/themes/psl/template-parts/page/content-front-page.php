@@ -184,7 +184,7 @@ foreach($posts as $post) {
           foreach( $result as $results ) {
 
               echo "<div class='item'>
-                      <img src='".$results->url_image."' />
+                      <img src='/blog".$results->url_image."' />
                         <div class='GalleryDis'> <div class='GalleryDisinside'>
                           <h6>".$results->title."</h6>
                           <p>".$results->content."</p>
