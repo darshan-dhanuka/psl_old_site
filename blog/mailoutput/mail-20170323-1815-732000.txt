@@ -1,0 +1,24 @@
+To: dinesh@envigo.co.uk
+Subject: [Poker Sports League] Please moderate: "Sed ut perspiciatis unde omnis iste natus"
+Date: Thu, 23 Mar 2017 18:15:51 +0000
+From: WordPress <wordpress@localhost>
+Message-ID: <99b5b85d6b8e355781a2c94056f2c105@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+A new comment on the post "Sed ut perspiciatis unde omnis iste natus" is waiting for your approval
+http://localhost:8000/sed-ut-perspiciatis-unde-omnis-iste-natus/
+
+Author: Dinesh (IP: ::1, Dinesh-PC)
+Email: dinesh@envigo.co.uk
+URL: 
+Comment: 
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Approve it: http://localhost:8000/wp-admin/comment.php?action=approve&c=2#wpbody-content
+Trash it: http://localhost:8000/wp-admin/comment.php?action=trash&c=2#wpbody-content
+Spam it: http://localhost:8000/wp-admin/comment.php?action=spam&c=2#wpbody-content
+Currently 1 comment is waiting for approval. Please visit the moderation panel:
+http://localhost:8000/wp-admin/edit-comments.php?comment_status=moderated#wpbody-content
+

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PSL</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+        <style type="text/css">
+            *{margin: 0; padding: 0; box-sizing: border-box;}
+            @font-face {
+                font-family: 'digital-7italic';
+                src: url('fonts/digital-webfont.woff2') format('woff2'),
+                    url('fonts/digital-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Changa-Regular';
+                src: url('fonts/Changa-Regular.eot');
+                src: local('☺'), url('fonts/Changa-Regular.woff') format('woff'), url('fonts/Changa-Regular.ttf') format('truetype'), url('fonts/Changa-Regular.svg') format('svg');
+                font-weight: normal;
+                font-style: normal;
+            }
+            header{text-align: center; background: #007f3f; padding: 15px 0}
+            section{padding: 40px 0; overflow:hidden;font-family: 'Changa-Regular';}
+            .container{max-width: 1200px; margin: 0 auto;}
+            .col-4{width: 33.333%; float: left;}
+            .digiTimes{font-family: 'digital-7italic'; font-size: 83px;}
+            .text-center{text-align: center;}
+            .timerPlay{}
+            .timeTitle{margin-bottom: 20px;font-size: 43px;}
+            .timerPlayer{background:#d7d7d7;padding: 10px 0; }
+            .startBtn{width: 94px; height: 94px; background:#007f3f;border-radius: 50%; color: #fff; margin: 0 auto;padding: 10px 0; cursor: pointer;}
+            .startBtn img{margin:0 auto; display: block;}
+            .startBtn span{display: block; font-size: 16px;}
+            .wrappers{margin: 20px auto;display: inline-block;padding: 3px 30px;background: #007f3f; color: #fff; font-size: 33px;}
+            .fxedWrp{width: 410px; padding: 10px;font-size: 41px;}
+            .pull-left{float: left;}
+            .pull-right{float: right;}
+            .plusMinusBtn{margin: 0 10px auto;display: inline-block;width: 160px;position: relative;top: -55px;}
+            .plusMinusBtn span{ display: inline-block; background: #007f3f; padding: 10px; color: #fff; font-size: 61px;width: 40%;margin: 5px;line-height: 30px; cursor: pointer;}
+            .viewDetails{overflow: visible;}
+            .breakPopup{position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 1000;}
+            .overLay{position: fixed; width: 100%;height: 100%; top: 0; left: 0;background: rgba(255,255,255,0.7);}
+            .breakContent{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); background: #fff;width: 750px;text-align: center;box-shadow: 0px 0px 5px 2px #535353;border-radius: 5px;overflow: hidden;}
+            .digiTimesBig{font-family: 'digital-7italic'; font-size: 150px;margin: 30px 0;}
+            .breakTime{font-family: 'Changa-Regular';font-size: 40px;margin-top: 20px;}
+            .closeBtn{background: #007f3f; padding: 20px; text-align: right;}
+            .closeBtn span{padding: 10px 30px;display: inline-block;background: #fff;border-radius: 5px;font-family: 'Changa-Regular';font-size: 20px; cursor: pointer;}
+            .txtField{width: 50%; padding: 5px;float: left; font-size: 33px;}
+            .txtField input{width: 100%; padding: 10px;font-size: 33px;font-family:'digital-7italic';}
+            .txtField button{background: #007f3f; padding:10px 20px; border: none; font-size: 33px; color: #fff; width: 100%; cursor: pointer;font-family: 'Changa-Regular';}
+            .clr{clear: both}
+        </style>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+
+
+        <audio id="initialStage">
+            <source src="sound/last15sec.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="finalStage">
+            <source src="sound/finished.mp3" type="audio/mpeg">
+        </audio>
+        <header><img src="images/logo.png" alt=""></header>
+        <section  ng-show="!startClock">
+
+            <div class="txtField">Round Minutes : <input type="number" ng-model="startMinute" /></div>
+            <div class="txtField">Level :  <input type="number" ng-model="level" /></div>
+            <div class="txtField">Participants :  <input type="number" ng-model="participants" /></div>
+            <div class="txtField">Starting Stack :  <input type="number" ng-model="starting_stack" /></div>
+            <!--<div class="txtField">Break Minutes :  <input type="number" ng-model="setBreakTime" /></div>-->
+            <p class="clr"></p>
+            <div class="txtField"><button ng-click="startClockBtn()">Start Clock</button></div>
+
+        </section>
+        <div  ng-show="startClock">
+            <section class="timerPlay">
+                <div class="container text-center">
+                    <div class="col-4">
+                        <div class="timeTitle">MINUTES : SECONDS</div>
+                        <div class="digiTimes">{{minute}}:{{sec}}</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="timeTitle">ANTE</div>
+                        <div class="digiTimes">{{ante[level]}}</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="timeTitle">BLINDS</div>
+                        <div class="digiTimes">{{sb[level]}}/{{bb[level]}}</div>
+                    </div>
+                    <div class="col-4" ng-show="(sb[level + 1])">
+                        <div class="timeTitle">NEXT BLINDS</div>
+                        <div class="digiTimes">{{sb[level + 1]}}/{{bb[level + 1]}}</div>
+                    </div>
+                </div>
+            </section>
+            <section class="timerPlayer">
+                <div class="container text-center">
+                    <div class="startBtn" ng-click="startStopWatch()">
+                        <img src="images/playBtn.png" alt=""  >
+                        <span>{{clock}}</span>
+                    </div>
+                    <div class="wrappers actvPlayer"><span>Active Players : <span id="act_users">{{users}}</span>/<span id="participants">{{participants}}</span></span></div>
+                </div>
+            </section>
+            <section class="viewDetails">
+                <div class="container text-center">
+                    <div class="wrappers fxedWrp pull-left"><span>AVG Stack : <span id="act_users">{{avg_stack}}</span></span></div>
+                    <div class="plusMinusBtn">
+                        <span class="plusBtn" ng-click="increaseUsers()">+</span>
+                        <span class="minusBtn" ng-click="decreaseUsers()">-</span>
+                        <span class="plusBtn" ng-click="increaseParticipant()">+</span>
+                        <span class="minusBtn" ng-click="decreaseParticipant()">-</span>
+                    </div>
+                    <div class="wrappers fxedWrp pull-right"><span>Level : {{round[level]}}</span></div>
+                </div>
+            </section>
+            <div class="breakPopup" ng-show="showBreakPopup">
+                <div class="overLay"></div>
+                <div class="breakContent">
+                    <div class="breakTime">Break Timer</div>
+                    <div class="digiTimesBig">{{breakTime}}</div>
+                    <div class="closeBtn" ng-click="showBreakPopup = false"><span>Close</span></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/angular.min.js"></script>
+        <script>
+            angular.module('myApp', [])
+                .controller('myCtrl', function($scope , $interval){
+                $scope.level = 0;
+                $scope.participants = 0;
+                $scope.avg_stack = 0 ;
+                $scope.starting_stack = 0;
+                $scope.sb = [25,50,100,150,200,300,400,600,800,1000,1500,2000,2500,3000,4000,5000,10000,20000,40000];
+                $scope.bb = [50,100,200,300,400,600,800,1200,1600,2000,3000,4000,5000,6000,8000,10000,20000,40000,80000];
+                $scope.ante = ['-','-','-',25,25,50,50,100,200,300,400,400,500,500,1000,1000,2000,4000,5000];
+                $scope.round = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+                $scope.sec = 0;
+                $scope.clock = 'Start';
+                $scope.showBreakPopup = false;
+                $scope.breakTime = 0;
+                $scope.setBreakTime  = [15,10,10]
+                $scope.breakTimer = [5,10,15];
+                $scope.startClock = false;
+                $scope.startStopWatchStatus = false;
+                var timer = 0;
+                var sec = 0;
+                var m = 20;
+                var s = 0;
+                //var audio = document.getElementById("clockSound"); 
+                $scope.startClockBtn = function(){
+                    --$scope.level;
+                    $scope.startClock = true;
+                    var min = parseInt($scope.startMinute);
+                    $scope.minute = min;
+                    var users = $scope.participants;
+                    $scope.users = users;
+                    $scope.minute = (parseInt($scope.minute) < 10) ? "0" + $scope.minute : $scope.minute;
+                    $scope.sec = (parseInt($scope.sec) < 10) ? "0" + $scope.sec : $scope.sec;
+                    $scope.calculateAvgStack();
+                }
+
+                $scope.calculateAvgStack = function(){
+                    var integer = (parseInt($scope.participants) * $scope.starting_stack )/parseInt($scope.users);
+                    $scope.avg_stack = Math.round(integer);
+                }
+                s
+                $scope.startStopWatch = function(){
+                    console.log('doing something')
+                    if($scope.startStopWatchStatus){
+                        console.log('stopping clock')
+                        $interval.cancel(timer);
+                        $scope.startStopWatchStatus = false;
+                        $scope.clock = 'Start';
+
+                    }else{
+                        console.log('starting clock')
+                        $scope.startStopWatchStatus = true;
+                        $scope.clock = 'Stop';
+                        timer = $interval( $scope.someFunction, 1000);
+                    }
+                };
+                $scope.someFunction = function(){
+                    if($scope.minute == 0 && $scope.sec == 0){
+                        $scope.level++;
+                        if(typeof $scope.round[$scope.level] == 'undefined'){
+                            $interval.cancel(timer);
+                        }else if( $scope.breakTimer.indexOf($scope.level)  > -1){
+                            var min = $scope.startMinute;
+                            $scope.minute = min;
+                            $scope.sec = 0;
+                            
+                            $interval.cancel(timer);
+                            $scope.startStopWatchStatus = false;
+                            $scope.showBreakPopup = true;
+                            m = $scope.setBreakTime[$scope.breakTimer.indexOf($scope.level)];
+                            $scope.clock = 'Start';
+                            var breakInterval = $interval(function (){
+                                if(m == 0 && s == 0){
+                                    $scope.showBreakPopup = false;
+                                    $scope.breakTimer.shift();
+                                    $interval.cancel(breakInterval);
+                                    $scope.startStopWatch();
+                                }else if(s == 0){
+                                    s = 59;
+                                    m--;
+                                    var t = (m < 10) ? "0" + m : m;
+                                    t += ":";
+                                    t += (s < 10) ? "0"+s : s;  
+                                }else{
+                                    s--;
+                                    var t = (m < 10) ? "0" + m : m;
+                                    t += ":";
+                                    t += (s < 10) ? "0"+s : s;  
+                                }
+                                $scope.breakTime = t;
+                            } , 1000);
+                            $scope.sec = 0;
+                        }else{
+                            var min = $scope.startMinute;
+                            $scope.minute = min;
+                        }                       
+
+                    }
+                    if(typeof $scope.round[$scope.level] !== 'undefined')
+                    {
+                        $scope.sec--;
+                        if($scope.sec < 0){
+                            if($scope.minute > 0)
+                                $scope.minute--;
+                            $scope.sec = 59;
+                        }
+                        $scope.minute = (parseInt($scope.minute) < 10) ? "0" + parseInt($scope.minute)  : $scope.minute;
+                        $scope.sec = (parseInt($scope.sec) < 10) ? "0" + parseInt($scope.sec)  : $scope.sec;    
+
+                        if(parseInt($scope.minute) == 0 && parseInt($scope.sec) == 5){
+                            initialStage.loop = true;
+                            initialStage.play();
+                        } else if(parseInt($scope.minute)  == 0 && parseInt($scope.sec) == 2){
+                            initialStage.pause();
+                            finalStage.play();
+                        } else if(parseInt($scope.minute)  == 0 && parseInt($scope.sec) == 0){
+                            finalStage.pause();
+                        }
+                    }else if( $scope.level > 18){
+                        alert('Tourney finished')
+                    }
+                }
+
+                $scope.increaseUsers = function(){
+
+                    if(parseInt( $scope.users) < parseInt($scope.participants)){
+                        $scope.users++;
+                        $scope.calculateAvgStack();
+                    }
+                }
+
+                $scope.decreaseUsers = function(){
+                    if(parseInt( $scope.users) > 0){
+                        $scope.users--;
+                        $scope.calculateAvgStack();
+                    }
+                }
+
+                $scope.increaseParticipant = function(){
+                    if(parseInt($scope.participants) < 1000){
+                        $scope.participants++;
+                        $scope.calculateAvgStack();
+                    }
+                }
+
+                $scope.decreaseParticipant = function(){
+                    if(parseInt($scope.participants) > 0 && parseInt($scope.participants) > parseInt($scope.users)){
+                        $scope.participants--;
+                        $scope.calculateAvgStack();
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,15 @@
+To: dinesh@envigo.co.uk
+Subject: [Poker Sports League] New User Registration
+Date: Fri, 24 Mar 2017 11:20:29 +0000
+From: WordPress <wordpress@localhost>
+Message-ID: <20bbaab59e1ee9c8ae7239d742e76278@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+New user registration on your site Poker Sports League:
+
+Username: dineshk
+
+Email: 80.dinesh@gmail.com
+

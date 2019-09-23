@@ -1,0 +1,24 @@
+To: 80.dinesh@gmail.com
+Subject: [Poker Sports League] Please moderate: "Section 1.10.32 of de Finibus Bonorum et Malorum"
+Date: Mon, 27 Mar 2017 09:07:57 +0000
+From: WordPress <wordpress@localhost>
+Message-ID: <d396cbe13d43a468edd9c9b568d2366f@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+A new comment on the post "Section 1.10.32 of de Finibus Bonorum et Malorum" is waiting for your approval
+http://localhost:8000/section-1-10-32-of-de-finibus-bonorum-et-malorum/
+
+Author: Dinesh (IP: 127.0.0.1, ENV-35)
+Email: dinesh@envigo.co.uk
+URL: 
+Comment: 
+Testing
+
+Approve it: http://localhost:8000/wp-admin/comment.php?action=approve&c=6#wpbody-content
+Trash it: http://localhost:8000/wp-admin/comment.php?action=trash&c=6#wpbody-content
+Spam it: http://localhost:8000/wp-admin/comment.php?action=spam&c=6#wpbody-content
+Currently 1 comment is waiting for approval. Please visit the moderation panel:
+http://localhost:8000/wp-admin/edit-comments.php?comment_status=moderated#wpbody-content
+

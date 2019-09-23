@@ -1,0 +1,24 @@
+To: dinesh@envigo.co.uk
+Subject: [Poker Sports League] Please moderate: "Where does it come from?"
+Date: Sat, 25 Mar 2017 11:46:52 +0000
+From: WordPress <wordpress@localhost>
+Message-ID: <ac9f26145c982d1e376dd7d25ef5ea5d@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+A new comment on the post "Where does it come from?" is waiting for your approval
+http://localhost:8000/where-does-it-come-from/
+
+Author: lorem (IP: ::1, Dinesh-PC)
+Email: lorem@lorem.com
+URL: 
+Comment: 
+hgjhghjkggjgjk
+
+Approve it: http://localhost:8000/wp-admin/comment.php?action=approve&c=2#wpbody-content
+Trash it: http://localhost:8000/wp-admin/comment.php?action=trash&c=2#wpbody-content
+Spam it: http://localhost:8000/wp-admin/comment.php?action=spam&c=2#wpbody-content
+Currently 1 comment is waiting for approval. Please visit the moderation panel:
+http://localhost:8000/wp-admin/edit-comments.php?comment_status=moderated#wpbody-content
+

@@ -1,0 +1,17 @@
+To: 80.dinesh@gmail.com
+Subject: [Poker Sports League] Your username and password info
+Date: Fri, 24 Mar 2017 11:20:29 +0000
+From: WordPress <wordpress@localhost>
+Message-ID: <2e5a954e4a107127c8ffcf8e73901df1@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+Username: dineshk
+
+To set your password, visit the following address:
+
+<http://localhost:8000/wp-login.php?action=rp&key=UJa7vElrIoTHIU61DlVy&login=dineshk>
+
+http://localhost:8000/wp-login.php
+

@@ -1,0 +1,24 @@
+To: 80.dinesh@gmail.com
+Subject: [Poker Sports League] Comment: "Section 1.10.32 of de Finibus Bonorum et Malorum"
+Date: Mon, 27 Mar 2017 09:14:30 +0000
+From: Dinesh <wordpress@localhost>
+Reply-To: "\"dinesh@envigo.co.uk\"" <dinesh@envigo.co.uk>
+Message-ID: <b7dff62142a34bd215f563d57d184a3a@localhost>
+X-Mailer: PHPMailer 5.2.22 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+
+New comment on your post "Section 1.10.32 of de Finibus Bonorum et Malorum"
+Author: Dinesh (IP: 127.0.0.1, ENV-35)
+Email: dinesh@envigo.co.uk
+URL: 
+Comment: 
+Testing
+
+You can see all comments on this post here:
+http://localhost:8000/section-1-10-32-of-de-finibus-bonorum-et-malorum/#comments
+
+Permalink: http://localhost:8000/section-1-10-32-of-de-finibus-bonorum-et-malorum/#comment-6
+Trash it: http://localhost:8000/wp-admin/comment.php?action=trash&c=6#wpbody-content
+Spam it: http://localhost:8000/wp-admin/comment.php?action=spam&c=6#wpbody-content
+
